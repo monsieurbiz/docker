@@ -1,0 +1,17 @@
+# Mailcatcher image
+
+See <https://mailcatcher.me/>.
+
+## Requirements
+
+You'll need an SMTP proxy to forward your local port to the port of the mailcatcher container.
+
+You can use `ssmtp` for that.
+
+See <https://github.com/monsieurbiz/docker/tree/master/mailcatcher/samples/php-app/webserver/Dockerfile> as Dockerfile example.
+
+## Samples
+
+See <https://github.com/monsieurbiz/docker/tree/master/mailcatcher/samples/>.
+
+[![asciicast](https://asciinema.org/a/113857.png)](https://asciinema.org/a/113857)
