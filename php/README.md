@@ -15,6 +15,8 @@ We have added a lot of PHP extensions to make the images compatible with Magento
 
 Composer is installed by default and these images will be rebuild each time a new version is available to keep composer up-to-date.
 
+Blackfire probe is setup by default if you have the [container blackfire](https://hub.docker.com/r/blackfire/blackfire/).
+
 # Maintainer
 
 The whole team of [Monsieur Biz](https://github.com/monsieurbiz) maintains these images.
