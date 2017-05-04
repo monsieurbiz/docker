@@ -20,14 +20,6 @@ RUN apt-get update && apt-get install -y \
     && docker-php-ext-configure gd --with-gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ --with-png-dir=/usr/include/ \
     && docker-php-ext-configure intl \
     && docker-php-ext-install -j$(nproc) pdo_mysql mcrypt gd exif intl soap opcache calendar \
-    && apt-get purge --auto-remove -y \
-        libcurl3-dev \
-        libfreetype6-dev \
-        libjpeg62-turbo-dev \
-        libmcrypt-dev \
-        libpng12-dev \
-        zlib1g-dev libicu-dev \
-        libxml2-dev \
     && rm -rf /var/lib/apt/lists/*
 
 # Use composer
