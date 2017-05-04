@@ -1,0 +1,46 @@
+FROM php:7-fpm
+
+LABEL maintainer "Monsieur Biz <docker@monsieurbiz.com>"
+
+# Use www-data with correct UID
+ARG USER_UID=1000
+RUN usermod -u $USER_UID www-data
+
+# Install dependencies
+RUN apt-get update && apt-get install -y \
+        libmcrypt4 \
+        libcurl3-dev \
+        libfreetype6-dev \
+        libjpeg62-turbo-dev \
+        libmcrypt-dev \
+        libpng12-dev \
+        zlib1g-dev libicu-dev \
+        libxml2-dev \
+        zip unzip git vim mysql-client \
+    && docker-php-ext-configure gd --with-gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ --with-png-dir=/usr/include/ \
+    && docker-php-ext-configure intl \
+    && docker-php-ext-install -j$(nproc) pdo_mysql mcrypt gd exif intl soap opcache calendar \
+    && apt-get purge --auto-remove -y \
+        libcurl3-dev \
+        libfreetype6-dev \
+        libjpeg62-turbo-dev \
+        libmcrypt-dev \
+        libpng12-dev \
+        zlib1g-dev libicu-dev \
+        libxml2-dev \
+    && rm -rf /var/lib/apt/lists/*
+
+# Use composer
+RUN curl -o /tmp/composer-setup.php https://getcomposer.org/installer \
+    && curl -o /tmp/composer-setup.sig https://composer.github.io/installer.sig \
+    && php -r "if (hash('SHA384', file_get_contents('/tmp/composer-setup.php')) !== trim(file_get_contents('/tmp/composer-setup.sig'))) { unlink('/tmp/composer-setup.php'); echo 'Invalid installer' . PHP_EOL; exit(1); }" \
+    && php /tmp/composer-setup.php --no-ansi --install-dir=/usr/local/bin --filename=composer --snapshot \
+    && rm -f /tmp/composer-setup.*
+
+# Set timezone to UTC (as always)
+RUN rm /etc/localtime
+RUN ln -s /usr/share/zoneinfo/UTC /etc/localtime
+RUN date
+
+# Change working directory
+WORKDIR /var/www
