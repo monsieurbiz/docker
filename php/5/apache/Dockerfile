@@ -2,10 +2,6 @@ FROM php:5-apache
 
 LABEL maintainer "Monsieur Biz <docker@monsieurbiz.com>"
 
-# Use www-data with correct UID
-ARG USER_UID=1000
-RUN usermod -u $USER_UID www-data
-
 # Install dependencies
 RUN apt-get update && apt-get install -y \
         libmcrypt4 \

@@ -17,6 +17,18 @@ Composer is installed by default and these images will be rebuild each time a ne
 
 Blackfire probe is setup by default if you have the [container blackfire](https://hub.docker.com/r/blackfire/blackfire/).
 
+# Work with correct rights on filesystem
+
+You can use this snippet in your own `Dockerfile`:
+
+```
+# Use www-data with correct UID
+ARG USER_UID=1000
+RUN usermod -u $USER_UID www-data
+```
+
+Then you can override the `USER_UID` via docker-compose or directly via `--build-arg` when you build the image using docker.
+
 # Maintainer
 
 The whole team of [Monsieur Biz](https://github.com/monsieurbiz) maintains these images.
