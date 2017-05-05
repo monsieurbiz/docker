@@ -12,7 +12,7 @@ RUN apt-get update && apt-get install -y \
         libpng12-dev \
         zlib1g-dev libicu-dev \
         libxml2-dev \
-        zip unzip git vim mysql-client \
+        zip unzip git vim mysql-client ssmtp \
     && docker-php-ext-configure gd --with-gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ --with-png-dir=/usr/include/ \
     && docker-php-ext-configure intl \
     && docker-php-ext-install -j$(nproc) pdo_mysql mcrypt gd exif intl soap opcache calendar \

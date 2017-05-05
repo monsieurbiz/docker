@@ -19,6 +19,8 @@ Composer is installed by default and these images will be rebuild each time a ne
 
 Blackfire probe is setup by default if you have the [container blackfire](https://hub.docker.com/r/blackfire/blackfire/).
 
+We also have added some tools: `vim`, `ssmtp`, `zip`, `unzip`, `git` and `mysql` (client).
+
 # Work with correct rights on filesystem
 
 You can use this snippet in your own `Dockerfile`:
