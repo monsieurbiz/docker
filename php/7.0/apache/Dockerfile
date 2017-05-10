@@ -37,9 +37,8 @@ RUN rm /etc/localtime
 RUN ln -s /usr/share/zoneinfo/UTC /etc/localtime
 RUN date
 
-# Enable mod rewrite and headers
-RUN a2enmod rewrite
-RUN a2enmod headers
+# Enable modules
+RUN a2enmod rewrite headers ssl deflate
 
 # Remove default vhost
 # If you want a vhost, add it with your own configuration
