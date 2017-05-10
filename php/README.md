@@ -1,11 +1,11 @@
 # Supported tags and respective `Dockerfile` links
 
 * `5-apache` [(5/apache/Dockerfile)](https://github.com/monsieurbiz/docker/blob/master/php/5/apache/Dockerfile)
-* `5-fpm` [(5/apache/Dockerfile)](https://github.com/monsieurbiz/docker/blob/master/php/5/fpm/Dockerfile)
+* `5-fpm` [(5/fpm/Dockerfile)](https://github.com/monsieurbiz/docker/blob/master/php/5/fpm/Dockerfile)
 * `7-apache` [(7/apache/Dockerfile)](https://github.com/monsieurbiz/docker/blob/master/php/7/apache/Dockerfile)
-* `7-fpm` [(7/apache/Dockerfile)](https://github.com/monsieurbiz/docker/blob/master/php/7/fpm/Dockerfile)
+* `7-fpm` [(7/fpm/Dockerfile)](https://github.com/monsieurbiz/docker/blob/master/php/7/fpm/Dockerfile)
 * `7.0-apache` [(7.0/apache/Dockerfile)](https://github.com/monsieurbiz/docker/blob/master/php/7.0/apache/Dockerfile)
-* `7.0-fpm` [(7.0/apache/Dockerfile)](https://github.com/monsieurbiz/docker/blob/master/php/7.0/fpm/Dockerfile)
+* `7.0-fpm` [(7.0/fpm/Dockerfile)](https://github.com/monsieurbiz/docker/blob/master/php/7.0/fpm/Dockerfile)
 
 # Reference
 
