@@ -33,6 +33,22 @@ RUN usermod -u $USER_UID www-data
 
 Then you can override the `USER_UID` via docker-compose or directly via `--build-arg` when you build the image using docker.
 
+# Use crontab
+
+You can put all the crons you need into the `/etc/crontab` file.
+
+`Dockerfile` examples:
+
+```
+COPY files/crontab /etc/crontab
+```
+
+or
+
+```
+RUN echo "* * * * * www-data echo \$(date) > /tmp/foo" > /etc/crontab
+```
+
 # Maintainer
 
 The whole team of [Monsieur Biz](https://github.com/monsieurbiz) maintains these images.

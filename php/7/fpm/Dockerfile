@@ -12,7 +12,7 @@ RUN apt-get update && apt-get install -y \
         libpng12-dev \
         zlib1g-dev libicu-dev \
         libxml2-dev \
-        zip unzip git vim mysql-client ssmtp \
+        zip unzip git vim mysql-client ssmtp cron \
     && docker-php-ext-configure gd --with-gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ --with-png-dir=/usr/include/ \
     && docker-php-ext-configure intl \
     && docker-php-ext-install -j$(nproc) pdo_mysql mcrypt gd exif intl soap opcache calendar \
@@ -39,3 +39,8 @@ RUN date
 
 # Change working directory
 WORKDIR /var/www
+
+# Change CMD to have cron running
+RUN echo "#!/bin/sh\ncron\n/usr/local/bin/apache2-foreground" > /usr/bin/run
+RUN chmod u+x /usr/bin/run
+CMD ["run"]
