@@ -41,6 +41,6 @@ RUN date
 WORKDIR /var/www
 
 # Change CMD to have cron running
-RUN echo "#!/bin/sh\ncron\n/usr/local/bin/apache2-foreground" > /usr/bin/run
+RUN echo "#!/bin/sh\ncron\nphp-fpm" > /usr/bin/run
 RUN chmod u+x /usr/bin/run
 CMD ["run"]
