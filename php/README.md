@@ -40,13 +40,13 @@ You can put all the crons you need into the `/etc/crontab` file.
 `Dockerfile` examples:
 
 ```
-COPY files/crontab /etc/crontab
+COPY files/crontab /etc/cron.d/my-crontab
 ```
 
 or
 
 ```
-RUN echo "* * * * * www-data echo \$(date) > /tmp/foo" > /etc/crontab
+RUN echo "* * * * * www-data echo \$(date) > /tmp/foo" > /etc/cron.d/my-crontab
 ```
 
 # Maintainer
