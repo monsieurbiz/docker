@@ -46,8 +46,18 @@ COPY files/crontab /etc/cron.d/my-crontab
 or
 
 ```
-RUN echo "* * * * * www-data echo \$(date) > /tmp/foo" > /etc/cron.d/my-crontab
+RUN echo "* * * * * www-data echo \$(date) > /tmp/foo" >> /etc/crontab
 ```
+
+*Note: In the case you use your own file in `/etc/cron.d/`, don't forget to add
+the `SHELL` you want to use and the `PATH` you need,n the top of your cron file, like this:
+
+```
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+SHELL=/bin/bash
+```
+
+If you want to suppress the mail sent by cron, you can add `MAILTO=` at the beginning of your own crontab.
 
 # Maintainer
 
