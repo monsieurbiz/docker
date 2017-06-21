@@ -35,9 +35,10 @@ RUN version=$(php -r "echo PHP_MAJOR_VERSION.PHP_MINOR_VERSION;") \
     && printf "extension=blackfire.so\nblackfire.agent_socket=tcp://blackfire:8707\n" > $PHP_INI_DIR/conf.d/blackfire.ini
 
 # Set timezone to UTC (as always)
-RUN rm /etc/localtime
-RUN ln -s /usr/share/zoneinfo/UTC /etc/localtime
-RUN date
+RUN rm /etc/localtime \
+    && ln -s /usr/share/zoneinfo/UTC /etc/localtime \
+    && date \
+    && printf "date.timezone=UTC\n" > $PHP_INI_DIR/conf.d/timezone.ini
 
 # Enable modules
 RUN a2enmod rewrite headers ssl deflate
