@@ -2,10 +2,13 @@
 
 * `5-apache` [(5/apache/Dockerfile)](https://github.com/monsieurbiz/docker/blob/master/php/5/apache/Dockerfile)
 * `5-fpm` [(5/fpm/Dockerfile)](https://github.com/monsieurbiz/docker/blob/master/php/5/fpm/Dockerfile)
+* `5-cli` [(5/cli/Dockerfile)](https://github.com/monsieurbiz/docker/blob/master/php/5/cli/Dockerfile)
 * `7-apache` [(7/apache/Dockerfile)](https://github.com/monsieurbiz/docker/blob/master/php/7/apache/Dockerfile)
 * `7-fpm` [(7/fpm/Dockerfile)](https://github.com/monsieurbiz/docker/blob/master/php/7/fpm/Dockerfile)
+* `7-cli` [(7/cli/Dockerfile)](https://github.com/monsieurbiz/docker/blob/master/php/7/cli/Dockerfile)
 * `7.0-apache` [(7.0/apache/Dockerfile)](https://github.com/monsieurbiz/docker/blob/master/php/7.0/apache/Dockerfile)
 * `7.0-fpm` [(7.0/fpm/Dockerfile)](https://github.com/monsieurbiz/docker/blob/master/php/7.0/fpm/Dockerfile)
+* `7.0-cli` [(7.0/cli/Dockerfile)](https://github.com/monsieurbiz/docker/blob/master/php/7.0/cli/Dockerfile)
 
 # Reference
 
@@ -34,6 +37,8 @@ RUN usermod -u $USER_UID www-data
 Then you can override the `USER_UID` via docker-compose or directly via `--build-arg` when you build the image using docker.
 
 # Use crontab
+
+The `cli` versions don't have cron.
 
 You can put all the crons you need into the `/etc/crontab` file.
 
