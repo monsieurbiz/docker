@@ -1,4 +1,4 @@
-FROM php:7-fpm
+FROM php:7-cli
 
 LABEL maintainer "Monsieur Biz <docker@monsieurbiz.com>"
 
