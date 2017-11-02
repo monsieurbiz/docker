@@ -11,5 +11,7 @@ RUN chmod +x /usr/bin/ngrok /run.sh
 VOLUME /root/.ngrok2
 VOLUME /local
 
+EXPOSE 4040
+
 CMD ["/run.sh"]
 

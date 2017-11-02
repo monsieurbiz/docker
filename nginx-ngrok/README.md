@@ -24,3 +24,9 @@ As simple as this.
 
 
 Enjoy!
+
+# The ngrok UI
+
+You can also forward the port `4040` to get the ngrok UI.
+
+For that, add `-p "4040:4040"` in your command line.
