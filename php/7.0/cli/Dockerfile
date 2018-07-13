@@ -9,7 +9,7 @@ RUN apt-get update && apt-get install -y \
         libfreetype6-dev \
         libjpeg62-turbo-dev \
         libmcrypt-dev \
-        libpng12-dev \
+        libpng-dev \
         zlib1g-dev libicu-dev \
         libxml2-dev \
         libpcre3-dev \
