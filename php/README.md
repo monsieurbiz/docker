@@ -12,6 +12,9 @@
 * `7.1-apache` [(7.1/apache/Dockerfile)](https://github.com/monsieurbiz/docker/blob/master/php/7.1/apache/Dockerfile)
 * `7.1-fpm` [(7.1/fpm/Dockerfile)](https://github.com/monsieurbiz/docker/blob/master/php/7.1/fpm/Dockerfile)
 * `7.1-cli` [(7.1/cli/Dockerfile)](https://github.com/monsieurbiz/docker/blob/master/php/7.1/cli/Dockerfile)
+* `7.2-apache` [(7.2/apache/Dockerfile)](https://github.com/monsieurbiz/docker/blob/master/php/7.2/apache/Dockerfile)
+* `7.2-fpm` [(7.2/fpm/Dockerfile)](https://github.com/monsieurbiz/docker/blob/master/php/7.2/fpm/Dockerfile)
+* `7.2-cli` [(7.2/cli/Dockerfile)](https://github.com/monsieurbiz/docker/blob/master/php/7.2/cli/Dockerfile)
 
 # Reference
 
