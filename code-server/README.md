@@ -10,6 +10,8 @@ Please refer to [the official library on github](https://github.com/codercom/cod
 
 We have added docker, docker-compose and make into the container!
 
+You can also kill the container itself by running `killme`.
+
 # Maintainer
 
 The whole team of [Monsieur Biz](https://github.com/monsieurbiz) maintains these images.

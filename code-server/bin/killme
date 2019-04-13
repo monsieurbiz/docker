@@ -1,0 +1,4 @@
+#!/bin/bash
+
+me=`hostname`
+docker kill $me
