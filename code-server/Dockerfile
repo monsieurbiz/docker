@@ -10,4 +10,8 @@ RUN apt-get update && \
 	add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable" && \
 	apt-get update && \
 	apt-get install -y docker-ce docker-ce-cli containerd.io && \
+	apt-get clean && \
+	rm -rf /var/lib/apt/lists/* && \
 	usermod -a -G docker coder
+
+USER coder
