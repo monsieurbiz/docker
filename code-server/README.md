@@ -8,7 +8,7 @@ Please refer to [the official library on github](https://github.com/codercom/cod
 
 # What difference?
 
-We have added docker into the container!
+We have added docker, docker-compose and make into the container!
 
 # Maintainer
 
