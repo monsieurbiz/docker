@@ -5,6 +5,10 @@ on:
     paths:
       - 'php/**'
       - '.github/workflows/php.yaml'
+  pull_request:
+    paths:
+      - 'php/**'
+      - '.github/workflows/php.yaml'
   schedule:
     - cron: '0 0 1,15 * *'
 

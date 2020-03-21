@@ -5,6 +5,10 @@ on:
     paths:
       - 'gulp/**'
       - '.github/workflows/gulp.yaml'
+  pull_request:
+    paths:
+      - 'gulp/**'
+      - '.github/workflows/gulp.yaml'
   schedule:
     - cron: '0 0 1,15 * *'
 

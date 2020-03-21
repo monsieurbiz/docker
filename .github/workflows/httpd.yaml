@@ -5,6 +5,10 @@ on:
     paths:
       - 'httpd/**'
       - '.github/workflows/httpd.yaml'
+  pull_request:
+    paths:
+      - 'httpd/**'
+      - '.github/workflows/httpd.yaml'
   schedule:
     - cron: '0 0 1,15 * *'
 

@@ -5,6 +5,10 @@ on:
     paths:
       - 'hologram/**'
       - '.github/workflows/hologram.yaml'
+  pull_request:
+    paths:
+      - 'hologram/**'
+      - '.github/workflows/hologram.yaml'
   schedule:
     - cron: '0 0 1,15 * *'
 

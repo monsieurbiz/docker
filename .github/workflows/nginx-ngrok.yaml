@@ -5,6 +5,10 @@ on:
     paths:
       - 'nginx-ngrok/**'
       - '.github/workflows/nginx-ngrok.yaml'
+  pull_request:
+    paths:
+      - 'nginx-ngrok/**'
+      - '.github/workflows/nginx-ngrok.yaml'
   schedule:
     - cron: '0 0 1,15 * *'
 

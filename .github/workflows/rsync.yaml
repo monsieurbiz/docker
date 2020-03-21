@@ -5,6 +5,10 @@ on:
     paths:
       - 'rsync/**'
       - '.github/workflows/rsync.yaml'
+  pull_request:
+    paths:
+      - 'rsync/**'
+      - '.github/workflows/rsync.yaml'
   schedule:
     - cron: '0 0 1,15 * *'
 

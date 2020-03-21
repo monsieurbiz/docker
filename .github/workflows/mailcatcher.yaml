@@ -5,6 +5,10 @@ on:
     paths:
       - 'mailcatcher/**'
       - '.github/workflows/mailcatcher.yaml'
+  pull_request:
+    paths:
+      - 'mailcatcher/**'
+      - '.github/workflows/mailcatcher.yaml'
   schedule:
     - cron: '0 0 1,15 * *'
 

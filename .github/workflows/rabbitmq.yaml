@@ -5,6 +5,10 @@ on:
     paths:
       - 'rabbitmq/**'
       - '.github/workflows/rabbitmq.yaml'
+  pull_request:
+    paths:
+      - 'rabbitmq/**'
+      - '.github/workflows/rabbitmq.yaml'
   schedule:
     - cron: '0 0 1,15 * *'
 

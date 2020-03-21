@@ -5,6 +5,10 @@ on:
     paths:
       - 'sshd/**'
       - '.github/workflows/sshd.yaml'
+  pull_request:
+    paths:
+      - 'sshd/**'
+      - '.github/workflows/sshd.yaml'
   schedule:
     - cron: '0 0 1,15 * *'
 
