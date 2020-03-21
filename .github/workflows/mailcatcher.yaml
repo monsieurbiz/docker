@@ -1,0 +1,19 @@
+name: Mailcatcher
+
+on:
+  push:
+    paths:
+      - 'mailcatcher/**'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Build the main image
+        run: (cd mailcatcher/; docker build .)
+
+      - name: Build the samples
+        run: (cd mailcatcher/samples/php-app/; docker-compose build)
