@@ -9,5 +9,4 @@ RUN apt-get update && apt-get upgrade -y \
 
 # Mailcatcher
 # Note: the host "mail:25" needs to follow your own rules
-RUN echo "sendmail_path = /usr/sbin/msmtp -t" > /usr/local/etc/php/conf.d/sendmail.ini \
-    && echo "mailhub=mail:25\nUseTLS=NO\nFromLineOverride=YES" > /etc/msmtp/msmtp.conf
+RUN echo "sendmail_path = '/usr/bin/msmtp --host=mail --port=25 --read-envelope-from --tls=off -t'" > /usr/local/etc/php/conf.d/sendmail.ini
