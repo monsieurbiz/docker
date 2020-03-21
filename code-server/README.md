@@ -15,3 +15,7 @@ You can also kill the container itself by running `killme`.
 # Maintainer
 
 The whole team of [Monsieur Biz](https://github.com/monsieurbiz) maintains these images.
+
+## Tests
+
+This Code Server image is built by Github Actions when a change is made into the `code-server/` directory.
