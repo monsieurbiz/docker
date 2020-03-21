@@ -2,17 +2,17 @@
 
 * `latest` [(latest/Dockerfile)](https://github.com/monsieurbiz/docker/blob/master/code-server/Dockerfile)
 
-# Reference
+## Reference
 
 Please refer to [the official library on github](https://github.com/codercom/code-server).
 
-# What difference?
+## What difference?
 
 We have added docker, docker-compose and make into the container!
 
 You can also kill the container itself by running `killme`.
 
-# Maintainer
+## Maintainer
 
 The whole team of [Monsieur Biz](https://github.com/monsieurbiz) maintains these images.
 

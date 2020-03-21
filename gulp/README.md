@@ -1,4 +1,4 @@
-# Gulp is used to build front resources (and so on)
+## Gulp is used to build front resources (and so on)
 
 ## Supported tags and respective `Dockerfile` links
 
