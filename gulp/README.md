@@ -10,3 +10,6 @@
 docker run --rm -ti -v `pwd`:/app monsieurbiz/gulp:node-8 bash
 ```
 
+## Tests
+
+This Gulp image is built by Github Actions when a change is made into the `gulp/` directory.
