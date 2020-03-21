@@ -4,6 +4,8 @@ on:
   push:
     paths:
       - 'hologram/**'
+  schedule:
+    - cron: '0 0 1,15 * *'
 
 jobs:
   build:
