@@ -1,6 +1,6 @@
 FROM httpd:latest
 
-LABEL maintainer "Monsieur Biz <docker@monsieurbiz.com>"
+LABEL maintainer="Monsieur Biz <docker@monsieurbiz.com>"
 
 ARG HTTPD_CONFIG_FILE=/usr/local/apache2/conf/httpd.conf
 RUN \

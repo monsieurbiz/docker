@@ -1,6 +1,6 @@
 FROM helder/ruby:2.2
 
-LABEL maintainer "Monsieur Biz <docker@monsieurbiz.com>"
+LABEL maintainer="Monsieur Biz <docker@monsieurbiz.com>"
 
 RUN gem install mailcatcher --no-rdoc --no-ri
 

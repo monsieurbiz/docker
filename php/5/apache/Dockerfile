@@ -1,6 +1,6 @@
 FROM php:5-apache
 
-LABEL maintainer "Monsieur Biz <docker@monsieurbiz.com>"
+LABEL maintainer="Monsieur Biz <docker@monsieurbiz.com>"
 
 # Install dependencies
 RUN apt-get update && apt-get install -y \
