@@ -16,3 +16,6 @@ See <https://github.com/monsieurbiz/docker/tree/master/mailcatcher/samples/>.
 
 [![asciicast](https://asciinema.org/a/113857.png)](https://asciinema.org/a/113857)
 
+## Tests
+
+This Mailcatcher image is built by Github Actions when a change is made into the `mailcatcher/` directory.
