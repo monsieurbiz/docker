@@ -1,0 +1,16 @@
+name: Nginx Ngrok
+
+on:
+  push:
+    paths:
+      - 'nginx-ngrok/**'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Build the image
+        run: (cd nginx-ngrok/; docker build .)

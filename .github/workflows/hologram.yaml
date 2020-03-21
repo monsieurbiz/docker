@@ -1,0 +1,16 @@
+name: Hologram
+
+on:
+  push:
+    paths:
+      - 'hologram/**'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Build the image
+        run: (cd hologram; docker build .)

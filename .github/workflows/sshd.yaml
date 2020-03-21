@@ -1,0 +1,16 @@
+name: SSHd
+
+on:
+  push:
+    paths:
+      - 'sshd/**'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Build the image
+        run: (cd sshd/; docker build .)

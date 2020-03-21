@@ -1,0 +1,16 @@
+name: HTTPd
+
+on:
+  push:
+    paths:
+      - 'httpd/**'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Build the image
+        run: (cd httpd/; docker build .)

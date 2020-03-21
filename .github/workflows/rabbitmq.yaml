@@ -1,0 +1,20 @@
+name: RabbitMQ
+
+on:
+  push:
+    paths:
+      - 'rabbitmq/**'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        tag: [3.7.0-management]
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Build the image
+        run: (cd rabbitmq/${{ matrix.tag }}/; docker build .)
