@@ -1,4 +1,4 @@
-FROM php:7-fpm
+FROM php:7.4-apache
 
 LABEL maintainer="Monsieur Biz <docker@monsieurbiz.com>"
 
@@ -49,10 +49,17 @@ RUN rm /etc/localtime \
     && date \
     && printf "date.timezone=UTC\n" > $PHP_INI_DIR/conf.d/timezone.ini
 
+# Enable modules
+RUN a2enmod rewrite headers ssl deflate
+
+# Remove default vhost
+# If you want a vhost, add it with your own configuration
+RUN rm -f /etc/apache2/sites-enabled/000-default.conf
+
 # Change working directory
 WORKDIR /var/www
 
 # Change CMD to have cron running
-RUN echo "#!/bin/sh\ncron\nphp-fpm" > /usr/bin/run
+RUN echo "#!/bin/sh\ncron\n/usr/local/bin/apache2-foreground" > /usr/bin/run
 RUN chmod u+x /usr/bin/run
 CMD ["run"]

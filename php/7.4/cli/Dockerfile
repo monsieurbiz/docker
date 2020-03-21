@@ -1,4 +1,4 @@
-FROM php:7-fpm
+FROM php:7.4-cli
 
 LABEL maintainer="Monsieur Biz <docker@monsieurbiz.com>"
 
@@ -21,7 +21,6 @@ RUN apt-get update && apt-get install -y \
         vim \
         default-mysql-client \
         msmtp \
-        cron \
         wget \
     && docker-php-ext-configure gd \
     && docker-php-ext-configure intl \
@@ -51,8 +50,3 @@ RUN rm /etc/localtime \
 
 # Change working directory
 WORKDIR /var/www
-
-# Change CMD to have cron running
-RUN echo "#!/bin/sh\ncron\nphp-fpm" > /usr/bin/run
-RUN chmod u+x /usr/bin/run
-CMD ["run"]
