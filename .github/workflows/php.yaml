@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - 'php/**'
+      - '.github/workflows/php.yaml'
   schedule:
     - cron: '0 0 1,15 * *'
 

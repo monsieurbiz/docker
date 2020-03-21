@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - 'hologram/**'
+      - '.github/workflows/hologram.yaml'
   schedule:
     - cron: '0 0 1,15 * *'
 

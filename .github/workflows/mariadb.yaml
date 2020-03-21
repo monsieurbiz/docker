@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - 'mariadb/**'
+      - '.github/workflows/mariadb.yaml'
   schedule:
     - cron: '0 0 1,15 * *'
 

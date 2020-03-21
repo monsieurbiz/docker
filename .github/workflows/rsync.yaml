@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - 'rsync/**'
+      - '.github/workflows/rsync.yaml'
   schedule:
     - cron: '0 0 1,15 * *'
 

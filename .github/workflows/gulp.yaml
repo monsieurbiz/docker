@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - 'gulp/**'
+      - '.github/workflows/gulp.yaml'
   schedule:
     - cron: '0 0 1,15 * *'
 

@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - 'jekyll/**'
+      - '.github/workflows/jekyll.yaml'
   schedule:
     - cron: '0 0 1,15 * *'
 

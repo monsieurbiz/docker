@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - 'code-server/**'
+      - '.github/workflows/code-server.yaml'
   schedule:
     - cron: '0 0 1,15 * *'
 
