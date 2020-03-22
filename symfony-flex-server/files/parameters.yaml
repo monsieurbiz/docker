@@ -1,0 +1,20 @@
+parameters:
+
+  # FALLBACKS FOR ENV VARIABLES.
+  # You may configure your stuff here, in case you don't have a .env or environment variables.
+
+  env(FLEX_RECIPE_REPO_PRIVATE): https://github.com/monsieurbiz/symfony-recipes.git
+
+  env(FLEX_OFFICIAL_ENDPOINT): https://symfony.sh/
+  env(FLEX_RECIPE_REPO_OFFICIAL): https://github.com/symfony/recipes
+  env(FLEX_RECIPE_REPO_CONTRIB): https://github.com/symfony/recipes-contrib
+
+  env(PROXY_OFFICIAL_ENDPOINT): true
+  env(CACHE_OFFICIAL_ENDPOINT): false
+  env(MIRROR_OFFICIAL_RECIPES): false
+  env(MIRROR_CONTRIB_RECIPES): false
+
+  proxy_official_endpoint: '%env(bool:PROXY_OFFICIAL_ENDPOINT)%'
+  cache_official_endpoint: '%env(bool:CACHE_OFFICIAL_ENDPOINT)%'
+  mirror_official_recipes: '%env(bool:MIRROR_OFFICIAL_RECIPES)%'
+  mirror_contrib_recipes: '%env(bool:MIRROR_CONTRIB_RECIPES)%'

@@ -1,0 +1,32 @@
+name: Symfony Flex Server
+
+on:
+  push:
+    paths:
+      - 'symfony-flex-server/**'
+      - '.github/workflows/symfony-flex-server.yaml'
+  pull_request:
+    paths:
+      - 'symfony-flex-server/**'
+      - '.github/workflows/symfony-flex-server.yaml'
+  schedule:
+    - cron: '0 0 1,15 * *'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Authenticate to Github Docker Packages
+        run:  echo ${{ github.token }} | docker login docker.pkg.github.com -u ${{ github.actor }} --password-stdin
+
+      - name: Build image
+        run: cd symfony-flex-server && docker build -t docker.pkg.github.com/${{ github.repository }}/symfony-flex-server:latest .
+
+      - name: List images
+        run: docker images
+
+      - name: Publish image
+        run: docker push docker.pkg.github.com/${{ github.repository }}/symfony-flex-server:latest
