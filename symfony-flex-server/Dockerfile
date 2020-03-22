@@ -1,6 +1,6 @@
 FROM monsieurbiz/php:7.2-apache
 
-RUN git clone https://github.com/moay/server-for-symfony-flex.git /var/www/flex
+RUN git clone https://github.com/monsieurbiz/server-for-symfony-flex.git /var/www/flex
 
 WORKDIR /var/www/flex
 
