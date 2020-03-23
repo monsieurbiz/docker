@@ -10,9 +10,9 @@ parameters:
   env(FLEX_RECIPE_REPO_CONTRIB): https://github.com/symfony/recipes-contrib
 
   env(PROXY_OFFICIAL_ENDPOINT): true
-  env(CACHE_OFFICIAL_ENDPOINT): false
-  env(MIRROR_OFFICIAL_RECIPES): false
-  env(MIRROR_CONTRIB_RECIPES): false
+  env(CACHE_OFFICIAL_ENDPOINT): true
+  env(MIRROR_OFFICIAL_RECIPES): true
+  env(MIRROR_CONTRIB_RECIPES): true
 
   proxy_official_endpoint: '%env(bool:PROXY_OFFICIAL_ENDPOINT)%'
   cache_official_endpoint: '%env(bool:CACHE_OFFICIAL_ENDPOINT)%'
