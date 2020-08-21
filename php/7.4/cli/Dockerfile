@@ -22,7 +22,7 @@ RUN apt-get update && apt-get install -y \
         default-mysql-client \
         msmtp \
         wget \
-    && docker-php-ext-configure gd \
+    && docker-php-ext-configure gd --with-freetype --with-jpeg \
     && docker-php-ext-configure intl \
     && docker-php-ext-configure zip \
     && docker-php-ext-install -j$(nproc) pdo_mysql gd exif intl soap opcache calendar zip xsl bcmath \
