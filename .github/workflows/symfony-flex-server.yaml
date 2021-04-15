@@ -11,6 +11,7 @@ on:
       - '.github/workflows/symfony-flex-server.yaml'
   schedule:
     - cron: '0 0 1,15 * *'
+  workflow_dispatch:
 
 jobs:
   build:
@@ -20,13 +21,13 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Authenticate to Github Docker Packages
-        run:  echo ${{ github.token }} | docker login docker.pkg.github.com -u ${{ github.actor }} --password-stdin
+        run:  echo ${{ github.token }} | docker login ghcr.io -u ${{ github.actor }} --password-stdin
 
       - name: Build image
-        run: cd symfony-flex-server && docker build -t docker.pkg.github.com/${{ github.repository }}/symfony-flex-server:latest .
+        run: cd symfony-flex-server && docker build -t ghcr.io/${{ github.repository }}/symfony-flex-server:latest .
 
       - name: List images
         run: docker images
 
       - name: Publish image
-        run: docker push docker.pkg.github.com/${{ github.repository }}/symfony-flex-server:latest
+        run: docker push ghcr.io/${{ github.repository }}/symfony-flex-server:latest
