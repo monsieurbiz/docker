@@ -12,7 +12,7 @@ We also trigger all workflows twice a month.
 
 ![Code Server](https://github.com/monsieurbiz/docker/workflows/Code%20Server/badge.svg)
 
-![Elasticsearch](https://github.com/monsieurbiz/docker/workflows/SSHd/badge.svg)
+![Elasticsearch](https://github.com/monsieurbiz/docker/workflows/Elasticsearch/badge.svg)
 
 ![Gulp](https://github.com/monsieurbiz/docker/workflows/Gulp/badge.svg)
 
