@@ -1,0 +1,28 @@
+name: Elasticsearch
+
+on:
+  push:
+    paths:
+      - 'elasticsearch/**'
+      - '.github/workflows/elasticsearch.yaml'
+  pull_request:
+    paths:
+      - 'elasticsearch/**'
+      - '.github/workflows/elasticsearch.yaml'
+  schedule:
+    - cron: '0 0 1,15 * *'
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        elasticsearch: [7.12.1]
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Build the image
+        run: (cd elasticsearch/${{ matrix.elasticsearch }}/; docker build .)
