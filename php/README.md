@@ -21,6 +21,9 @@
 * `7.4-apache` [(7.4/apache/Dockerfile)](https://github.com/monsieurbiz/docker/blob/master/php/7.4/apache/Dockerfile)
 * `7.4-fpm` [(7.4/fpm/Dockerfile)](https://github.com/monsieurbiz/docker/blob/master/php/7.4/fpm/Dockerfile)
 * `7.4-cli` [(7.4/cli/Dockerfile)](https://github.com/monsieurbiz/docker/blob/master/php/7.4/cli/Dockerfile)
+* `8.0-apache` [(8.0/apache/Dockerfile)](https://github.com/monsieurbiz/docker/blob/master/php/8.0/apache/Dockerfile)
+* `8.0-fpm` [(8.0/fpm/Dockerfile)](https://github.com/monsieurbiz/docker/blob/master/php/8.0/fpm/Dockerfile)
+* `8.0-cli` [(8.0/cli/Dockerfile)](https://github.com/monsieurbiz/docker/blob/master/php/8.0/cli/Dockerfile)
 
 ## Reference
 
