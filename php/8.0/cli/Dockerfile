@@ -1,0 +1,52 @@
+FROM php:8.0-cli
+
+LABEL maintainer="Monsieur Biz <docker@monsieurbiz.com>"
+
+# Install dependencies
+RUN apt-get update && apt-get install -y \
+        libmcrypt4 \
+        libcurl3-dev \
+        libfreetype6-dev \
+        libjpeg62-turbo-dev \
+        libmcrypt-dev \
+        libpng-dev \
+        zlib1g-dev libicu-dev \
+        libxml2-dev \
+        libpcre3-dev \
+        libxslt-dev \
+        zip \
+        libzip-dev \
+        unzip \
+        git \
+        vim \
+        default-mysql-client \
+        msmtp \
+        wget \
+    && docker-php-ext-configure gd --with-freetype --with-jpeg \
+    && docker-php-ext-configure intl \
+    && docker-php-ext-configure zip \
+    && docker-php-ext-install -j$(nproc) pdo_mysql gd exif intl soap opcache calendar zip xsl bcmath \
+    && rm -rf /var/lib/apt/lists/*
+
+# Use composer
+RUN curl -o /tmp/composer-setup.php https://getcomposer.org/installer \
+    && curl -o /tmp/composer-setup.sig https://composer.github.io/installer.sig \
+    && php -r "if (hash('SHA384', file_get_contents('/tmp/composer-setup.php')) !== trim(file_get_contents('/tmp/composer-setup.sig'))) { unlink('/tmp/composer-setup.php'); echo 'Invalid installer' . PHP_EOL; exit(1); }" \
+    && php /tmp/composer-setup.php --no-ansi --install-dir=/usr/local/bin --filename=composer --stable \
+    && rm -f /tmp/composer-setup.*
+
+# Blackfire
+RUN version=$(php -r "echo PHP_MAJOR_VERSION.PHP_MINOR_VERSION;") \
+    && curl -A "Docker" -o /tmp/blackfire-probe.tar.gz -D - -L -s https://blackfire.io/api/v1/releases/probe/php/linux/amd64/$version \
+    && tar zxpf /tmp/blackfire-probe.tar.gz -C /tmp \
+    && mv /tmp/blackfire-*.so $(php -r "echo ini_get('extension_dir');")/blackfire.so \
+    && printf "extension=blackfire.so\nblackfire.agent_socket=tcp://blackfire:8707\n" > $PHP_INI_DIR/conf.d/blackfire.ini
+
+# Set timezone to UTC (as always)
+RUN rm /etc/localtime \
+    && ln -s /usr/share/zoneinfo/UTC /etc/localtime \
+    && date \
+    && printf "date.timezone=UTC\n" > $PHP_INI_DIR/conf.d/timezone.ini
+
+# Change working directory
+WORKDIR /var/www
