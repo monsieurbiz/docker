@@ -2,18 +2,34 @@ name: Code Server
 
 on:
   push:
+    branches: [ master ]
+    paths:
+      - 'code-server/**'
+      - '.github/workflows/code-server.yaml'
+  pull_request:
     paths:
       - 'code-server/**'
       - '.github/workflows/code-server.yaml'
   schedule:
     - cron: '0 0 1,15 * *'
+  workflow_dispatch:
 
 jobs:
   build:
+    name: latest
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v2
 
       - name: Build the image
-        run: (cd code-server; docker build .)
+        run: |
+          cd code-server
+          docker build . --tag monsieurbiz/code-server:latest
+          docker images
+
+      - name: Push the image
+        if: (github.event_name == 'push' || github.event_name == 'schedule') && github.ref == 'refs/heads/master'
+        run: |
+          docker login -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{ secrets.DOCKERHUB_TOKEN }}
+          docker push monsieurbiz/code-server:latest

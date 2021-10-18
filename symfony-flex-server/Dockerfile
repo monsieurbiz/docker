@@ -4,7 +4,7 @@ RUN git clone https://github.com/monsieurbiz/server-for-symfony-flex.git /var/ww
 
 WORKDIR /var/www/flex
 
-RUN composer install -o -a --prefer-dist
+RUN composer self-update --1 && composer install -o -a --prefer-dist
 
 RUN printf "memory_limit=-1\n" > $PHP_INI_DIR/conf.d/memory.ini
 
