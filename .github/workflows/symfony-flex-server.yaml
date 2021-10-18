@@ -2,6 +2,7 @@ name: Symfony Flex Server
 
 on:
   push:
+    branches: [ master ]
     paths:
       - 'symfony-flex-server/**'
       - '.github/workflows/symfony-flex-server.yaml'

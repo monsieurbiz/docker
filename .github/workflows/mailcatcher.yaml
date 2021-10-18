@@ -2,6 +2,7 @@ name: Mailcatcher
 
 on:
   push:
+    branches: [ master ]
     paths:
       - 'mailcatcher/**'
       - '.github/workflows/mailcatcher.yaml'
@@ -11,6 +12,7 @@ on:
       - '.github/workflows/mailcatcher.yaml'
   schedule:
     - cron: '0 0 1,15 * *'
+  workflow_dispatch:
 
 jobs:
   build:
@@ -19,8 +21,16 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Build the main image
-        run: (cd mailcatcher/; docker build .)
+      - name: Build the image
+        run: |
+          cd mailcatcher
+          docker build . --tag monsieurbiz/mailcatcher:latest
+
+      - name: Push the image
+        if: (github.event_name == 'push' || github.event_name == 'schedule') && github.ref == 'refs/heads/master'
+        run: |
+          docker login -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{ secrets.DOCKERHUB_TOKEN }}
+          docker push monsieurbiz/mailcatcher:latest
 
       - name: Build the samples
         run: (cd mailcatcher/samples/php-app/; docker-compose build)
