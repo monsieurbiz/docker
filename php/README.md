@@ -24,6 +24,9 @@
 * `8.0-apache` [(8.0/apache/Dockerfile)](https://github.com/monsieurbiz/docker/blob/master/php/8.0/apache/Dockerfile)
 * `8.0-fpm` [(8.0/fpm/Dockerfile)](https://github.com/monsieurbiz/docker/blob/master/php/8.0/fpm/Dockerfile)
 * `8.0-cli` [(8.0/cli/Dockerfile)](https://github.com/monsieurbiz/docker/blob/master/php/8.0/cli/Dockerfile)
+* `8.1-apache` [(8.0/apache/Dockerfile)](https://github.com/monsieurbiz/docker/blob/master/php/8.1/apache/Dockerfile)
+* `8.1-fpm` [(8.0/fpm/Dockerfile)](https://github.com/monsieurbiz/docker/blob/master/php/8.1/fpm/Dockerfile)
+* `8.1-cli` [(8.0/cli/Dockerfile)](https://github.com/monsieurbiz/docker/blob/master/php/8.1/cli/Dockerfile)
 
 ## Reference
 
