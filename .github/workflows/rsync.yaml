@@ -2,6 +2,7 @@ name: Rsync
 
 on:
   push:
+    branches: [ master ]
     paths:
       - 'rsync/**'
       - '.github/workflows/rsync.yaml'
@@ -11,13 +12,24 @@ on:
       - '.github/workflows/rsync.yaml'
   schedule:
     - cron: '0 0 1,15 * *'
+  workflow_dispatch:
 
 jobs:
   build:
+    name: latest
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v2
 
       - name: Build the image
-        run: (cd rsync/; docker build .)
+        run: |
+          cd rsync
+          docker build . --tag monsieurbiz/rsync:latest
+          docker images
+
+      - name: Push the image
+        if: (github.event_name == 'push' || github.event_name == 'schedule') && github.ref == 'refs/heads/master'
+        run: |
+          docker login -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{ secrets.DOCKERHUB_TOKEN }}
+          docker push monsieurbiz/rsync:latest

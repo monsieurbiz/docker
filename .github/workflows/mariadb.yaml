@@ -2,6 +2,7 @@ name: MariaDB
 
 on:
   push:
+    branches: [ master ]
     paths:
       - 'mariadb/**'
       - '.github/workflows/mariadb.yaml'
@@ -11,9 +12,11 @@ on:
       - '.github/workflows/mariadb.yaml'
   schedule:
     - cron: '0 0 1,15 * *'
+  workflow_dispatch:
 
 jobs:
   build:
+    name: ${{ matrix.tag }}
     runs-on: ubuntu-latest
 
     strategy:
@@ -24,4 +27,13 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Build the image
-        run: (cd mariadb/${{ matrix.tag }}/; docker build .)
+        run: |
+          cd mariadb/${{ matrix.tag }}
+          docker build . --tag monsieurbiz/mariadb:${{ matrix.tag }}
+          docker images
+
+      - name: Push the image
+        if: (github.event_name == 'push' || github.event_name == 'schedule') && github.ref == 'refs/heads/master'
+        run: |
+          docker login -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{ secrets.DOCKERHUB_TOKEN }}
+          docker push monsieurbiz/mariadb:${{ matrix.tag }}
