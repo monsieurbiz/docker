@@ -32,5 +32,5 @@ jobs:
         run: docker images
 
       - name: Publish image
-        if: (github.event_name == 'push' || github.event_name == 'schedule') && github.ref == 'refs/heads/master'
+        if: (github.event_name == 'push' || github.event_name == 'schedule' || github.event_name == 'workflow_dispatch') && github.ref == 'refs/heads/master'
         run: docker push ghcr.io/${{ github.repository }}/symfony-flex-server:latest
