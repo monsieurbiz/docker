@@ -21,7 +21,7 @@ jobs:
 
     strategy:
       matrix:
-        tag: [10.1, 10.2, 10.3, 10.4, 10.5, latest]
+        tag: [10.1, 10.2, 10.3, 10.4, 10.5, 10.6, 10.7, latest]
 
     steps:
       - uses: actions/checkout@v2
