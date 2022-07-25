@@ -2,5 +2,5 @@
 
 nginx -g "daemon on;"
 
-/usr/bin/ngrok http 80
+/usr/local/bin/ngrok http 80
 
