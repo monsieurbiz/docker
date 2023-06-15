@@ -2,6 +2,9 @@ FROM php:5-apache
 
 LABEL maintainer="Monsieur Biz <docker@monsieurbiz.com>"
 
+# Replace secure by archive
+RUN echo "deb [trusted=yes] http://archive.debian.org/debian/ stretch main non-free contrib\ndeb-src [trusted=yes] http://archive.debian.org/debian/ stretch main non-free contrib \ndeb [trusted=yes] http://archive.debian.org/debian-security/ stretch/updates main non-free contrib" > /etc/apt/sources.list
+
 # Install dependencies
 RUN apt-get update && apt-get install -y \
         libmcrypt4 \
