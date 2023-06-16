@@ -1,4 +1,4 @@
-FROM php:8.2-apache-bullseye
+FROM php:8.2-apache-buster
 
 LABEL maintainer="Monsieur Biz <docker@monsieurbiz.com>"
 
