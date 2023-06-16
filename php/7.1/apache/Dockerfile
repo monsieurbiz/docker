@@ -1,4 +1,4 @@
-FROM php:7.1-apache
+FROM php:7.1-apache-buster
 
 LABEL maintainer="Monsieur Biz <docker@monsieurbiz.com>"
 
